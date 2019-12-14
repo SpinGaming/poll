@@ -29,8 +29,7 @@ bot.on('message', message => {
 
             message.channel.send("🗳️" + "**" + msgArgs + "**").then(messageReaction => {
                 messageReaction.react("👍");
-                wait(1000);
-                messageReaction.react("👎");
+                setTimeout(() => { messageReaction.react("👎"); }, 1000);
                 message.delete(2000).catch(console.error);
             });
 
