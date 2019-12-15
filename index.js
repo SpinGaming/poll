@@ -20,7 +20,7 @@ bot.on('message', message => {
                 .setTitle("Poll Help")
                 .setDescription("p!poll to initiate a simple yes/no poll!")
 
-            const Embedpoll = new RichEmbed()
+            var Embedpoll = new RichEmbed()
                 .setColor(0xFFC300)
                 .setTitle("Polling Station")
                 .setDescription("**" + msgArgs + "**")
