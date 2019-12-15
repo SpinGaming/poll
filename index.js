@@ -15,26 +15,19 @@ bot.on('message', message => {
     switch (args[0]) {
 
         case "poll":
-            const Embedhelp = new RichEmbed()
+            const Embed = new RichEmbed()
                 .setColor(0xFFC300)
                 .setTitle("Poll Help")
                 .setDescription("p!poll to initiate a simple yes/no poll!")
-
-            var Embedpoll = new RichEmbed()
-                .setColor(0xFFC300)
-                .setTitle("Polling Station")
-                .setDescription("**" + msgArgs + "**")
-                .setThumbnail("http://icons.iconarchive.com/icons/iconarchive/blue-election/512/Election-Polling-Box-01-Outline-icon.png")
-
+            
             if (!args[1]) {
-                message.channel.send(Embedhelp);
-                message.delete(2000).catch(console.error);
+                message.channel.send(Embed);
                 break;
             }
 
             let msgArgs = args.slice(1).join(" ");
 
-            message.channel.send(EmbedPoll).then(messageReaction => {
+            message.channel.send("🗳️" + "**" + msgArgs + "**").then(messageReaction => {
                 messageReaction.react("👍");
                 setTimeout(() => { messageReaction.react("👎"); }, 1000);
                 message.delete(2000).catch(console.error);
@@ -45,4 +38,4 @@ bot.on('message', message => {
 
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(token);
